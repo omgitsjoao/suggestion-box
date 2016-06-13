@@ -32,7 +32,18 @@
 <hr/>
 <div class="row">
   <div class="col-md-12">
-    <%= mail_to @suggestion.email, 'Respond to.'%>
+    <div class="pull-left">
+      <small class="muted">
+        <%= @suggestion.created_at.strftime('%d %b, %Y - %H:%M %Z') %>
+        <br>
+        Last Updated: <%= @suggestion.updated_at.strftime('%d %b, %Y - %H:%M %Z') %>
+      </small>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= mail_to @suggestion.email, 'Contact the creator.'%>
   </div>
 </div>
 </div>
