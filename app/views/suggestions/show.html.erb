@@ -5,8 +5,8 @@
       <div class="alert alert-success alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert"
         aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
+        <span aria-hidden="true">×</span>
+      </button>
       <%= notice %>
     </div>
   </div>
@@ -15,6 +15,21 @@
 <div class="row">
   <div class="col-md-12">
     <%= link_to icon('chevron-left'), suggestions_path, :class => 'pull-left' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="pull-right">
+      <% if @suggestion.approved %>
+      <span class="label label-success">
+        <i class="fa fa-check"></i>&nbsp; Approved
+      </span>
+      <% else %>
+      <span class="label label-danger">
+        <i class="fa fa-times"></i>&nbsp; Declined
+      </span>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="row">
