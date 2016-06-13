@@ -39,11 +39,11 @@
       <tbody>
         <% @suggestions.each do |suggestion| %>
         <tr>
-          <td><%= short_text(sanitize(suggestion.content)) %></td>
+          <td><%= link_to short_text(sanitize(suggestion.content)), suggestion %></td>
           <td><%= suggestion.name %></td>
           <td class="text-center"><%= mail_to suggestion.email, icon('envelope-o') %></td>
           <td>
-            <%= link_to icon('eye'), suggestion,:class => 'tb-link' %>
+
           </td>
           <td>
             <%= link_to icon('pencil'), edit_suggestion_path(suggestion), :class => 'tb-link'%>
