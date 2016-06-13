@@ -1,6 +1,10 @@
-<h1>Editing Suggestion</h1>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <%= link_to icon('chevron-left'), suggestions_path, :class => 'pull-left' %>
+      <h1 class="text-center">Editing Suggestion</h1>
+    </div>
+  </div>
+  <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @suggestion %> |
-<%= link_to 'Back', suggestions_path %>
+</div>
