@@ -5,6 +5,24 @@
 @import "suggestions";
 @import "home";
 @import "progress";
+
+$danger:  #E74C3C;
+$danger-darker: #C0392B;
+$success: #2ECC71;
+$success-darker: #27AE60;
+
+.alert-danger {
+  color: $danger-darker;
+  background-color: transparent;
+  border-color: $danger;
+}
+
+.alert-success {
+  color: $success-darker;
+  background-color: transparent;
+  border-color: $success;
+}
+
 /*
 * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
