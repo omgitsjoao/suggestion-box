@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
       session[:user_name] = user.name
       redirect_to suggestions_url
     else
+      flash[:notice] = 'Make sure the user exists and the password is correct'
       redirect_to login_path
     end
   end
