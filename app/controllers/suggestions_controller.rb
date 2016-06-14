@@ -1,4 +1,5 @@
 class SuggestionsController < ApplicationController
+  before_action :authorize, only: [:edit, :update, :destroy]
   before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
 
   # GET /suggestions
