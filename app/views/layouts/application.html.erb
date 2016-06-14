@@ -11,7 +11,13 @@
   <nav class="container">
     <div class="col-md-12">
       <div class="pull-right">
-        Hello <%= current_user.name %>
+        <button type="button" class="btn btn-default dropdown-toggle"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <%= current_user.name %> <span class="caret"></span>
+   </button>
+   <ul class="dropdown-menu">
+     <li><%= link_to 'Log out', session_destroy_path %></li>
+   </ul>
       </div>
     </nav>
   </div>
