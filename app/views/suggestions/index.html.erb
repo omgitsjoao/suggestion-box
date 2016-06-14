@@ -30,6 +30,7 @@
           <tr>
             <th>Suggestion</th>
             <th>Name</th>
+            <th>Approved</th>
             <% if current_user %>
             <th>Contact</th>
             <th colspan="10"></th>
@@ -42,7 +43,11 @@
           <tr>
             <td><%= link_to short_text(sanitize(suggestion.content)), suggestion %></td>
             <td><%= suggestion.name %></td>
-
+            <%if suggestion.approved %>
+            <td class="text-success text-center"><i class="fa fa-check"></i></td>
+            <% else %>
+            <td class="text-danger text-center"><i class="fa fa-times"></i></td>
+            <% end%>
             <% if current_user %>
             <td class="text-center"><%= mail_to suggestion.email, icon('envelope-o') %></td>
             <td>
