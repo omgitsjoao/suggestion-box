@@ -1,66 +1,54 @@
 <div class="container">
-  <% if notice%>
+  <%= render 'notice' %>
   <div class="row">
     <div class="col-md-12">
-      <div class="alert alert-success alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert"
-        aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-      <%= notice %>
+      <%= link_to icon('chevron-left'), suggestions_path, :class => 'pull-left' %>
     </div>
   </div>
-</div>
-<% end %>
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to icon('chevron-left'), suggestions_path, :class => 'pull-left' %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="pull-right">
-      <% if @suggestion.approved %>
-      <span class="label label-success">
-        <i class="fa fa-check"></i>&nbsp; Approved
-      </span>
-      <% else %>
-      <span class="label label-danger">
-        <i class="fa fa-times"></i>&nbsp; Declined
-      </span>
-      <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <% if @suggestion.approved %>
+        <span class="label label-success">
+          <i class="fa fa-check"></i>&nbsp; Approved
+        </span>
+        <% else %>
+        <span class="label label-danger">
+          <i class="fa fa-times"></i>&nbsp; Declined
+        </span>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <p>I <%= @suggestion.name %>, suggest that</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <blockquote>
-      <%= sanitize @suggestion.content %>
-    </blockquote>
-  </div>
-</div>
-<hr/>
-<div class="row">
-  <div class="col-md-12">
-    <div class="pull-left">
-      <small class="muted">
-        <%= @suggestion.created_at.strftime('%d %b, %Y - %H:%M %Z') %>
-        <br>
-        Last Updated: <%= @suggestion.updated_at.strftime('%d %b, %Y - %H:%M %Z') %>
-      </small>
+  <div class="row">
+    <div class="col-md-12">
+      <p>I <%= @suggestion.name %>, suggest that</p>
     </div>
   </div>
-</div>
-<% if current_user %>
-<div class="row">
-  <div class="col-md-12">
-    <%= mail_to @suggestion.email, 'Contact the creator.'%>
+  <div class="row">
+    <div class="col-md-12">
+      <blockquote>
+        <%= sanitize @suggestion.content %>
+      </blockquote>
+    </div>
   </div>
-</div>
-<% end %>
+  <hr/>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-left">
+        <small class="muted">
+          <%= @suggestion.created_at.strftime('%d %b, %Y - %H:%M %Z') %>
+          <br>
+          Last Updated: <%= @suggestion.updated_at.strftime('%d %b, %Y - %H:%M %Z') %>
+        </small>
+      </div>
+    </div>
+  </div>
+  <% if current_user %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= mail_to @suggestion.email, 'Contact the creator.'%>
+    </div>
+  </div>
+  <% end %>
 </div>
