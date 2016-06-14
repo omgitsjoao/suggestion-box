@@ -23,15 +23,5 @@
   </div>
   <% end %>
   <%= yield %>
-  <% if not current_user %>
-  <footer class="container">
-    <div class="col-md-12">
-      <div class="pull-left">
-        <small>Internal user ?</small>
-        <small><%= link_to 'Login Here', login_path %></small>
-      </div>
-    </div>
-  </footer>
-  <% end %>
 </body>
 </html>
