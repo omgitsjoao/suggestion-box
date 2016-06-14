@@ -14,4 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require flat-ui.min.js
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
+
+NProgress.configure({
+  showSpinner: false,
+  ease: 'ease',
+  speed: 500
+});
