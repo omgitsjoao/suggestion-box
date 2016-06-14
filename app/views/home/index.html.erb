@@ -1,2 +1,32 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <h1 class="text-center">Suggestion Box</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 text-center icon section">
+      <span class="text-info"><i class="fa fa-inbox fa-7x"></i></span>
+    </div>
+  </div>
+  <div class="row buttons section">
+    <div class="col-sm-12 col-md-4 col-md-offset-4 text-center">
+      <%= link_to "Send us your's", new_suggestion_path,  :class => ['btn', 'btn-success', 'btn-block']%>
+      <b>- Or -</b>
+      <%= link_to 'See our received suggestions', suggestions_path , :class => ['btn', 'btn-success', 'btn-block']%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center capiton section">
+      <p class="lead">Your suggestions can help us to make your life and many of others better</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-left">
+        <small>Internal user ?</small>
+        <small><%= link_to 'Login Here', login_path %></small>
+      </div>
+    </div>
+  </div>
+</div>
