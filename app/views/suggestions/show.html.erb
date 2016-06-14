@@ -28,7 +28,7 @@
   <div class="row">
     <div class="col-md-12">
       <blockquote>
-        <%= sanitize @suggestion.content %>
+        <%= simple_format(sanitize(@suggestion.content)) %>
       </blockquote>
     </div>
   </div>
