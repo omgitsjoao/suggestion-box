@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+
   get 'users/login' => 'users#login', as: :login
 
   post 'sessions/create' => 'sessions#create', as: :session_create
