@@ -24,7 +24,13 @@
   </div>
 </div>
 <hr>
-<% if not @suggestions.blank? %>
+<% if @suggestions.empty? %>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <p class="lead">We don't have suggestions right now</p>
+  </div>
+</div>
+<% else %>
 <div class="row">
   <div class="col-md-12">
     <table>
@@ -62,11 +68,5 @@
 
   </div>
 </div>
-<% else %>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <p class="lead">We don't have suggestions right now</p>
-    </div>
-  </div>
 <% end %>
 </div>
