@@ -24,6 +24,7 @@
   </div>
 </div>
 <hr>
+<% if not @suggestions.blank? %>
 <div class="row">
   <div class="col-md-12">
     <table>
@@ -31,8 +32,10 @@
         <tr>
           <th>Suggestion</th>
           <th>Name</th>
+          <% if current_user %>
           <th>Contact</th>
           <th colspan="10"></th>
+          <% end %>
         </tr>
       </thead>
 
@@ -41,6 +44,8 @@
         <tr>
           <td><%= link_to short_text(sanitize(suggestion.content)), suggestion %></td>
           <td><%= suggestion.name %></td>
+
+          <% if current_user %>
           <td class="text-center"><%= mail_to suggestion.email, icon('envelope-o') %></td>
           <td>
             <%= link_to icon('pencil'), edit_suggestion_path(suggestion), :class => 'tb-link'%>
@@ -48,6 +53,8 @@
           <td>
             <%= link_to icon('trash-o'), suggestion, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tb-link' %>
           </td>
+          <% end %>
+
         </tr>
         <% end %>
       </tbody>
@@ -55,4 +62,11 @@
 
   </div>
 </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p class="lead">We don't have suggestions right now</p>
+    </div>
+  </div>
+<% end %>
 </div>
