@@ -1,13 +1,7 @@
 <%= form_for(@suggestion) do |f| %>
 <% if @suggestion.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>
-
-  <ul>
-    <% @suggestion.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
+  <p class="text-danger text-center"><%= pluralize(@suggestion.errors.count, "error") %> prohibited this suggestion from being saved</p>
 </div>
 <% end %>
 <% if current_user %>
@@ -16,12 +10,12 @@
     <div class="switcher pull-right">
       <label class="checkbox" for="suggestion_approved">
         <%= f.check_box :approved,  :class => 'custom-checkbox', :data => {:toggle => 'checkbox'} %>
-          <span class="icons">
-            <span class="icon-unchecked"></span>
-            <span class="icon-checked"></span>
-          </span>
+        <span class="icons">
+          <span class="icon-unchecked"></span>
+          <span class="icon-checked"></span>
+        </span>
         Approve ?
-        </label>
+      </label>
 
     </div>
   </div>
@@ -29,27 +23,42 @@
 <% end %>
 <div class="row">
   <div class="col-md-12">
-    <div class="form-group">
+    <div class="form-group <%= @suggestion.errors[:content].empty? ? '' : 'has-error' %>">
       <%= f.text_area :content,  :class => 'form-control',
       :placeholder => 'Wirte your suggestion here', :rows => '7', :required => 'required'%>
+      <% if not @suggestion.errors[:content].empty? %>
+      <% @suggestion.errors[:content].each do |message| %>
+      <span class="help-block"><%= message.capitalize %></span>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <div class="form-group">
-      <%= f.label :name %>
+    <div class="form-group <%= @suggestion.errors[:name].empty? ? '' : 'has-error' %>">
+      <%= f.label :name, :class => 'control-label' %>
       <%= f.text_field :name, :class => 'form-control', :placeholder => 'Please tell us thy name',
       :required => 'required' %>
+      <% if not @suggestion.errors[:name].empty? %>
+      <% @suggestion.errors[:name].each do |message| %>
+      <span class="help-block"><%= message.capitalize %></span>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <div class="form-group">
-      <%= f.label :email %><br>
+    <div class="form-group <%= @suggestion.errors[:email].empty? ? '' : 'has-error' %>">
+      <%= f.label :email, :class => 'control-label' %>
       <%= f.text_field :email, :class => 'form-control', :placeholder => 'For contact proposes, add your email',
       :required => 'required'   %>
+      <% if not @suggestion.errors[:email].empty? %>
+      <% @suggestion.errors[:email].each do |message| %>
+      <span class="help-block"><%= message.capitalize %></span>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
