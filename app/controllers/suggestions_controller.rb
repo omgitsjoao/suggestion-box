@@ -70,6 +70,6 @@ class SuggestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suggestion_params
-      params.require(:suggestion).permit(:content, :name, :email)
+      params.require(:suggestion).permit(:content, :name, :email, :approved)
     end
 end

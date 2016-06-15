@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require respond.min.js
+//= require html5shiv.js
+//= require video.js
 //= require flat-ui.min.js
 //= require nprogress
 //= require nprogress-turbolinks
@@ -23,3 +26,5 @@ NProgress.configure({
   ease: 'ease',
   speed: 500
 });
+
+$(':checkbox').radiocheck();
