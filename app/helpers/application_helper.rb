@@ -25,4 +25,9 @@ module ApplicationHelper
     end
   end
 
+  def gravatar_of(email, size = 200)
+    hash = Digest::MD5::hexdigest email
+    "http://gravatar.com/avatar/#{hash}.png?s=#{size}"
+  end
+
 end

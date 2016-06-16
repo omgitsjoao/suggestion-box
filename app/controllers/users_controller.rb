@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authorize, only: [:edit, :update, :show]
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :index]
 
   def login
     if current_user
@@ -14,8 +14,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users
-  def show
-    @user = User.find(session[:user_id])
+  def index
   end
 
   # PUT /users
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to suggestions_url, notice: 'User successfully updated.' }
+        format.html { redirect_to user_path, notice: 'User successfully updated.' }
         format.json { head :ok }
       else
         format.html { render :edit}

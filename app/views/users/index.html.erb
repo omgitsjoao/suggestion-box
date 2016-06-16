@@ -1,1 +1,31 @@
-<h1>index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-left">
+        <small>
+          <%= link_to icon('chevron-left', 'Suggestions', :class => 'fa-fw'), suggestions_path %>
+        </small>
+      </div>
+      <div class="pull-right">
+        <small>
+          <%= link_to icon('pencil', 'Edit Account', :class => 'fa-fw'), user_edit_path %>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="row user-image">
+    <div class="col-md-12 text-center">
+      <%= image_tag gravatar_of(@user.email), :class => 'img-circle' %>
+    </div>
+  </div>
+  <div class="row user-name">
+    <div class="col-md-12">
+      <h1 class="text-center"><%= @user.name %></h1>
+    </div>
+  </div>
+  <div class="row user-email">
+    <div class="col-md-12">
+      <h4 class="text-center"><%= @user.email %></h4>
+    </div>
+  </div>
+</div>
