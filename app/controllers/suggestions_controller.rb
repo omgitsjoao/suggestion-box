@@ -29,7 +29,7 @@ class SuggestionsController < ApplicationController
 
     respond_to do |format|
       if @suggestion.save
-        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully created.' }
+        format.html { redirect_to @suggestion, notice: 'Thank you for this suggestion!' }
         format.json { render :show, status: :created, location: @suggestion }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class SuggestionsController < ApplicationController
   def destroy
     @suggestion.destroy
     respond_to do |format|
-      format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully destroyed.' }
+      format.html { redirect_to suggestions_url, notice: 'Suggestion was successfully removed.' }
       format.json { head :no_content }
     end
   end
