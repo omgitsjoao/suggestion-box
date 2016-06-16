@@ -28,7 +28,7 @@
   <div class="row">
     <div class="col-md-12">
       <blockquote>
-        <%= sanitize(@suggestion.content) %>
+        <%= redcarpet @suggestion.content %>
       </blockquote>
     </div>
   </div>
