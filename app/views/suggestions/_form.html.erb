@@ -24,45 +24,50 @@
 <div class="row">
   <div class="col-md-12">
     <div class="form-group <%= @suggestion.errors[:content].empty? ? '' : 'has-error' %>">
-      <%= f.text_area :content,  :class => 'form-control',
-      :placeholder => 'Wirte your suggestion here', :rows => '7', :required => 'required'%>
-      <% if not @suggestion.errors[:content].empty? %>
-      <% @suggestion.errors[:content].each do |message| %>
-      <span class="help-block"><%= message.capitalize %></span>
-      <% end %>
-      <% end %>
+      <span>
+        <small class="really-small">
+          <a href="https://daringfireball.net/projects/markdown/syntax#block">Markdown</a>
+          syntax is supported</small>
+        </span>
+        <%= f.text_area :content,  :class => 'form-control',
+        :placeholder => 'Wirte your suggestion here', :rows => '7', :required => 'required'%>
+        <% if not @suggestion.errors[:content].empty? %>
+        <% @suggestion.errors[:content].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="form-group <%= @suggestion.errors[:name].empty? ? '' : 'has-error' %>">
-      <%= f.label :name, :class => 'control-label' %>
-      <%= f.text_field :name, :class => 'form-control', :placeholder => 'Please tell us thy name',
-      :required => 'required' %>
-      <% if not @suggestion.errors[:name].empty? %>
-      <% @suggestion.errors[:name].each do |message| %>
-      <span class="help-block"><%= message.capitalize %></span>
-      <% end %>
-      <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group <%= @suggestion.errors[:name].empty? ? '' : 'has-error' %>">
+        <%= f.label :name, :class => 'control-label' %>
+        <%= f.text_field :name, :class => 'form-control', :placeholder => 'Please tell us thy name',
+        :required => 'required' %>
+        <% if not @suggestion.errors[:name].empty? %>
+        <% @suggestion.errors[:name].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="form-group <%= @suggestion.errors[:email].empty? ? '' : 'has-error' %>">
-      <%= f.label :email, :class => 'control-label' %>
-      <%= f.text_field :email, :class => 'form-control', :placeholder => 'For contact proposes, add your email',
-      :required => 'required'   %>
-      <% if not @suggestion.errors[:email].empty? %>
-      <% @suggestion.errors[:email].each do |message| %>
-      <span class="help-block"><%= message.capitalize %></span>
-      <% end %>
-      <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group <%= @suggestion.errors[:email].empty? ? '' : 'has-error' %>">
+        <%= f.label :email, :class => 'control-label' %>
+        <%= f.text_field :email, :class => 'form-control', :placeholder => 'For contact proposes, add your email',
+        :required => 'required'   %>
+        <% if not @suggestion.errors[:email].empty? %>
+        <% @suggestion.errors[:email].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="actions">
-  <%= f.submit 'Send', :class => ['btn', 'btn-success'] %>
-</div>
-<% end %>
+  <div class="actions">
+    <%= f.submit 'Send', :class => ['btn', 'btn-success'] %>
+  </div>
+  <% end %>
