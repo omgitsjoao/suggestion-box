@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get '/' => 'home#index', as: :home
 
   get 'users/login' => 'users#login', as: :login
-
+  get 'users' => 'users/index', as: :user
+  get 'users/edit' => 'users#edit', as: :user_edit
+  put 'users' => 'users#update', as: :user_update
   post 'sessions/create' => 'sessions#create', as: :session_create
 
   get 'sessions/destroy' => 'sessions#destroy', as: :session_destroy
