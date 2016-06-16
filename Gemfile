@@ -7,6 +7,8 @@ gem 'rails', '4.2.6'
 gem 'sqlite3'
 # Use redcarpet to parse markdown
 gem 'redcarpet'
+# Use kaminari to paginate entries
+gem 'kaminari'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'font-awesome-sass', '~> 4.6.2'
