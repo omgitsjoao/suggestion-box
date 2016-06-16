@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Use redcarpet to parse markdown
+gem 'redcarpet'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'font-awesome-sass', '~> 4.6.2'
