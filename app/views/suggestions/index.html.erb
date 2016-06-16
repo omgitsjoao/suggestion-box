@@ -41,7 +41,7 @@
         <tbody>
           <% @suggestions.each do |suggestion| %>
           <tr>
-            <td><%= link_to redcarpet(short_text(suggestion.content)), suggestion %></td>
+            <td><%= link_to sanitize(short_text(suggestion.content)), suggestion %></td>
             <td><%= suggestion.name %></td>
             <%if suggestion.approved %>
             <td class="text-success text-center"><i class="fa fa-check"></i></td>
