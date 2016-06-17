@@ -2,7 +2,7 @@
   <%= render 'layouts/notice' %>
   <div class="row">
     <div class="col-md-12">
-  <small><%= link_to icon('chevron-left', 'Home', :class => 'fa-fw'), home_path, :class => 'pull-left' %></small>
+      <small><%= link_to icon('chevron-left', 'Home', :class => 'fa-fw'), home_path, :class => 'pull-left' %></small>
     </div>
   </div>
   <div class="row">
@@ -62,7 +62,13 @@
           <% end %>
         </tbody>
       </table>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <%= paginate @suggestions %>
+      </div>
     </div>
   </div>
   <% end %>

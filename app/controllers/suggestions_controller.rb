@@ -5,7 +5,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.json
   def index
-    @suggestions = Suggestion.all
+    @suggestions = Suggestion.order(:updated_at).page params[:page]
   end
 
   # GET /suggestions/1

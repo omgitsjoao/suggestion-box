@@ -3,4 +3,6 @@ class Suggestion < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
   validates_format_of :email, :with =>  /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+
+  paginates_per 20
 end
