@@ -2,9 +2,26 @@
   <%= render 'layouts/notice' %>
   <div class="row">
     <div class="col-md-12">
-      <small>
-        <%= link_to icon('chevron-left', 'Suggestions', :class => 'fa-fw'), suggestions_path, :class => 'pull-left' %>
-      </small>
+      <div class="pull-left">
+        <small>
+          <%= link_to icon('chevron-left', 'Suggestions', :class => 'fa-fw'), suggestions_path %>
+        </small>
+      </div>
+      <% if current_user %>
+      <div class="pull-right">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button"
+             id="settings-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span><i class="fa fa-cog"></i></span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="settings-dropdown">
+              <li><%= link_to icon('pencil', 'Edit', :class => 'fa-fw'), edit_suggestion_path(@suggestion) %></li>
+              <li><%= link_to icon('trash-o', 'Remove', :class => 'fa-fw'), @suggestion, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+      </div>
+      <% end %>
     </div>
   </div>
   <div class="row spaced">
