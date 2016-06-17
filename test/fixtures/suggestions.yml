@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyString
-  name: MyString
-  email: MyString
+markdown:
+  content: '#Iam a markdown title'
+  name: 'João Pedro Evangelista'
+  email: 'joaoevangelista@protonmail.com'
 
-two:
-  content: MyString
-  name: MyString
-  email: MyString
+default:
+  content: 'Railling on Rails'
+  name: 'Juliet'
+  email: 'juliet@castle.com'

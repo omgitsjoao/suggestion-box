@@ -9,6 +9,7 @@ Developing
  versions of Rails are `4.2.x` and Ruby `2.x`
 
  Install Rails gem or use the bundled executable located at `bin\rails`
+  - Use `bundle install` to install all gems for the project
   - Run `rake db:migrate db:seed` to start the sqlite3 database used on development, migrating it and seeding the user account
   - Start Rails with `rails s`
 
@@ -17,8 +18,11 @@ Developing
 Testing
 ----
  Setup the test suite if needed, info can be found [here](http://buildingrails.com/a/rails_automated_testing_setup_for_beginners)
+ First you will need to migrate the database running `bin\rake db:migrate RAKE_ENV=test`
 
- To run the suite, open a new terminal and run the command: `rails test`
+ Then start Guard to watch your tests `bin\bundle exec guard`
+
+ To run the suite, open a new terminal and run the command: `bin\bundle exec rake test`
 
 Deployment
 ----
