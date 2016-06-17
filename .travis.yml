@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.2
+
+bundler_args: --without production
+
+install:
+  - 'bundle install'
+
+before_script:
+    - 'bundle db:migrate RAILS_ENV="test"'
+
+script: 'bundle exec rake test'
