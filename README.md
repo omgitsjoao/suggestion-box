@@ -16,7 +16,9 @@ Developing
 
 Testing
 ----
- TBD
+ Setup the test suite if needed, info can be found [here](http://buildingrails.com/a/rails_automated_testing_setup_for_beginners)
+
+ To run the suite, open a new terminal and run the command: `rails test`
 
 Deployment
 ----
