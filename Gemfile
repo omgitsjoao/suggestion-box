@@ -47,7 +47,9 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Minitest and Guard
-  gem 'guard-minitest', '~> 2.3.2' # https://github.com/guard/guard-minitest
+  # https://github.com/seattlerb/minitest
+  # https://github.com/guard/guard-minitest
+  gem 'guard-minitest', '~> 2.3.2'
   # Colorize minitest output and show failing tests instantly.
   gem 'minitest-colorize', git: 'https://github.com/ysbaddaden/minitest-colorize'
   # https://github.com/Springest/terminal-notifier-guard
