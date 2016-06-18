@@ -61,7 +61,7 @@ group :development do
   # https://github.com/Springest/terminal-notifier-guard
   gem 'terminal-notifier-guard', '~> 1.5.3'
   # Colorfy Windows console
-  gem 'win32console'
+  gem 'win32console', platforms: [:mingw, :mswin, :x64_mingw]
 end
 
 group :test do
