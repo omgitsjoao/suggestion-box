@@ -12,6 +12,7 @@ Developing
 
  Install Rails gem or use the bundled executable located at `bin\rails`
   - Use `bundle install` to install all gems for the project
+  - Rename the `config/secrets.ex.yml` to `config/secrets.yml` and change the values using the task `rake secret`
   - Run `rake db:migrate db:seed` to start the sqlite3 database used on development, migrating it and seeding the user account
   - Start Rails with `rails s`
 
@@ -34,6 +35,6 @@ Deployment
  **About Database**: On production is recommended to use Postgresql, to make use of include the following environment variables, on your environment or on docker run command:
 
  - `POSTGRES_URI` **-** URI containing the host, username, password, pool parameters and others you may want to use
-
+ - `SECRET_KEY_BASE` **-**  A generated secret obtained from `rake secret`
 -----------
 Licensed under [The MIT License](./LICENSE)
