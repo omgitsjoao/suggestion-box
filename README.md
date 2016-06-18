@@ -3,6 +3,8 @@
 A simple suggestion box software to allow users to collaborate with ideas
 without throwing them into issue tracking systems
 
+[![Build Status](https://travis-ci.org/joaoevangelista/suggestion-box.svg?branch=master)](https://travis-ci.org/joaoevangelista/suggestion-box)
+
 Developing
 ----
  This project built with Rails, so you will need Ruby and the Rails Gem, the supported
