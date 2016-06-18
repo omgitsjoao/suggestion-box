@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :production do
 
 # Use Unicorn as the app server
-gem 'unicorn'
+# gem 'unicorn'
 # Use pg as database on production
 gem 'pg'
 

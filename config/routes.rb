@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'license' => 'license#index', as: :license
+
   get '/' => 'home#index', as: :home
 
   get 'users/login' => 'users#login', as: :login
