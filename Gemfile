@@ -37,6 +37,8 @@ group :production do
 
 # Use Unicorn as the app server
 gem 'unicorn'
+# Use pg as database on production
+gem 'pg'
 
 end
 

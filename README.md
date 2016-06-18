@@ -8,7 +8,7 @@ without throwing them into issue tracking systems
 Developing
 ----
  This project built with Rails, so you will need Ruby and the Rails Gem, the supported
- versions of Rails are `4.2.x` and Ruby `2.x`
+ versions of Rails are `4.2.6` and Ruby `2.3.1`
 
  Install Rails gem or use the bundled executable located at `bin\rails`
   - Use `bundle install` to install all gems for the project
@@ -29,9 +29,11 @@ Testing
 Deployment
 ----
 
- Docker: TBD
+ **About Docker**: There is a bundled [Dockerfile](./Dockerfile) on this repository you can use it to build your own image
 
- Database: TBD
+ **About Database**: On production is recommended to use Postgresql, to make use of include the following environment variables, on your environment or on docker run command:
+
+ - `POSTGRES_URI` **-** URI containing the host, username, password, pool parameters and others you may want to use
 
 -----------
 Licensed under [The MIT License](./LICENSE)
