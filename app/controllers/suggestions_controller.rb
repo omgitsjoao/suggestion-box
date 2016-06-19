@@ -11,6 +11,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1
   # GET /suggestions/1.json
   def show
+    @comment = Comment.new({user_id: session[:user_id], suggestion_id: @suggestion.id})
   end
 
   # GET /suggestions/new
