@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <% if current_user.id.equal? comment.user_id %>
+        <% if current_user and current_user.id.equal? comment.user_id %>
           <%= link_to icon('trash-o'), suggestion_comment_path(comment.suggestion_id, comment.id),
            method: :delete, data: { confirm: 'Are you sure?' }, :class => 'text-silver' %>
         <% end %>
