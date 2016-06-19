@@ -6,13 +6,13 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.where(user_id: session[:id])
+    @comments = Comment.where(user_id: session[:user_id])
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Comment.where({id: params[:id], suggestion_id: params[:suggestion_id]})
   end
 
   # GET /comments/new
@@ -75,7 +75,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment_by_user
-      @comment = Comment.where({user_id: params[:id], suggestion_id: params[:id]})
+      @comment = Comment.where({user_id: params[:id], suggestion_id: params[:suggestion_id]})
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
