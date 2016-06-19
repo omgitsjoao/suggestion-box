@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
+
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :create, :update,:destroy]
 
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.find_all_by_user_id session[:id]
   end
 
   # GET /comments/1
@@ -25,7 +27,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    # ensure the current user is the user of the comment
+    @comment.user_id = session[:user_id]
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
