@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
-  before_action :authorize, only: [:edit, :update, :destroy]
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update, :destroy, :approve, :decline]
+  before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :approve, :decline]
 
   # GET /suggestions
   # GET /suggestions.json
@@ -63,14 +63,41 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_suggestion
-      @suggestion = Suggestion.find(params[:id])
-    end
+  # PUT /suggestions/1/approve
+  # PUT /suggestions/1/approve.json
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def suggestion_params
-      params.require(:suggestion).permit(:content, :name, :email, :approved)
+  def approve
+    respond_to do |format|
+      if @suggestion.approve
+        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully approved.' }
+        format.json { head :no_content }
+      else
+        format.html { render @suggestion, notice: 'Failed to approve.' }
+        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
+      end
     end
+  end
+
+  def decline
+    respond_to do |format|
+      if @suggestion.decline
+        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully approved.' }
+        format.json { head :no_content }
+      else
+        format.html { render @suggestion, notice: 'Failed to approve.' }
+        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_suggestion
+    @suggestion = Suggestion.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def suggestion_params
+    params.require(:suggestion).permit(:content, :name, :email, :approved)
+  end
 end

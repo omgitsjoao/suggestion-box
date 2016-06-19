@@ -7,4 +7,19 @@ class Suggestion < ActiveRecord::Base
   paginates_per 20
 
   has_many :comments
-end
+
+  def approve
+    self.approved = true
+    return self.update_approval
+  end
+
+  def decline
+    self.approved = false
+    return self.update_approval
+  end
+  
+  def update_approval
+    return self.update({name: self.name, email: self.email,
+      content: self.content, approved: self.approved})
+    end
+  end
