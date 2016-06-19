@@ -78,7 +78,8 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <%= render 'comments', comments: @suggestion.comments %>
+      <%= render 'comments' %>
     </div>
   </div>
+  <%= render 'comment_form', {suggestion_id: @suggestion.id, comment: @comment } %>
 </div>

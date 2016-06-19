@@ -1,31 +1,39 @@
-<% if not comments.empty? %>
-<% comments.each do |comment| %>
+<% if not @suggestion.comments.empty? %>
+<% @suggestion.comments.each do |comment| %>
 <div class="row">
   <div class="col-md-12">
-    <div class="panel">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="row">
-            <div class="col-md-12">
-              <% gravatar_of comment.user.email, :size => '35' %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <% if current_user.id.equal? comment.user_id %>
+          <%= link_to icon('trash-o'), suggestion_comment_path(comment.suggestion_id, comment.id),
+           method: :delete, data: { confirm: 'Are you sure?' }, :class => 'text-silver' %>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-12">
+                <%= image_tag gravatar_of(comment.user.email, '50'), :class => 'img-circle' %>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <span><% comment.user.name %></span>
+            <div class="row">
+              <div class="col-md-12">
+                <span><%= comment.user.name %></span>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <small>
-                <% comment.created_at.strftime('%d %b, %Y - %H:%M %Z') %>
-              </small>
+            <div class="row">
+              <div class="col-md-12">
+                <small>
+                  <%= comment.created_at.strftime('%d %b, %Y - %H:%M %Z') %>
+                </small>
+              </div>
             </div>
-          </div>
 
-        </div>
-        <div class="col-md-9">
-          <% redcarpet comment.content %>
+          </div>
+          <div class="col-md-9">
+            <%= redcarpet comment.content %>
+          </div>
         </div>
       </div>
     </div>
@@ -33,9 +41,9 @@
 </div>
 <% end %>
 <% else %>
-  <div class="row">
-    <div class="col-md-12">
-      <p class="text-center muted"><span class="text-warning"><i class="fa fa-frown-o"></i></span> No comments yet</p>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <p class="text-center muted"><span class="text-warning"><i class="fa fa-frown-o"></i></span> No comments yet</p>
   </div>
+</div>
 <% end %>
