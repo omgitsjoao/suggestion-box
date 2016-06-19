@@ -70,4 +70,15 @@
     </div>
   </div>
   <% end %>
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <h4 class="text-center">Comments</h4>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'comments', comments: @suggestion.comments %>
+    </div>
+  </div>
 </div>
