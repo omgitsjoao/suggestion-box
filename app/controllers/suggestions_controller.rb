@@ -11,7 +11,6 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1
   # GET /suggestions/1.json
   def show
-    @comments = Comment.where suggestion_id: params[:id]
   end
 
   # GET /suggestions/new

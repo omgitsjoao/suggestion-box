@@ -5,4 +5,6 @@ class Suggestion < ActiveRecord::Base
   validates_format_of :email, :with =>  /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
   paginates_per 20
+
+  has_many :comments
 end
