@@ -1,17 +1,18 @@
 class CommentsController < ApplicationController
 
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:edit, :create, :update,:destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :create, :update, :destroy, :new]
 
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.find_all_by_user_id session[:id]
+    @comments = Comment.where(user_id: session[:id])
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @comment = Comment.find(params[:id])
   end
 
   # GET /comments/new
@@ -57,17 +58,24 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+    if @comment
+      @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to comments_url, notice: 'Comment not found to remove' }
+        format.json { status :not_found }
+      end
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
+    def set_comment_by_user
+      @comment = Comment.where({user_id: params[:id], suggestion_id: params[:id]})
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
