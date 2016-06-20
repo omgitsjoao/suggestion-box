@@ -31,11 +31,11 @@
       <% if @suggestion.approved %>
       <%= link_to icon('check', 'Approved', class: 'fa-fw'),
       suggestion_decline_path(@suggestion.id), method: :delete,
-      data: { confirm: 'Are you sure?' }, class: ['btn', 'btn-success'] %>
+      data: { confirm: 'You are about to decline this suggestion. Are you sure?' }, class: ['btn', 'btn-success'] %>
       <% else %>
       <%= link_to icon('times', 'Declined', class: 'fa-fw'),
       suggestion_approve_path(@suggestion.id), method: :put,
-      data: { confirm: 'Are you sure?' }, class: ['btn', 'btn-danger'] %>
+      data: { confirm: 'You are about to approve this suggestion. Are you sure?' }, class: ['btn', 'btn-danger'] %>
       <% end %>
       <% else %>
       <% if @suggestion.approved %>

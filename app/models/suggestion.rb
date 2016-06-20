@@ -9,15 +9,13 @@ class Suggestion < ActiveRecord::Base
   has_many :comments
 
   def approve
-    self.approved = true
-    return self.update_approval
+    return self.update({approved: true})
   end
 
   def decline
-    self.approved = false
-    return self.update_approval
+    return self.update({approved: false})
   end
-  
+
   def update_approval
     return self.update({name: self.name, email: self.email,
       content: self.content, approved: self.approved})

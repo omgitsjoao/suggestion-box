@@ -78,13 +78,16 @@ class SuggestionsController < ApplicationController
     end
   end
 
+  # DELETE /suggestions/1/decline
+  # DELETE /suggestions/1/decline.json
+
   def decline
     respond_to do |format|
       if @suggestion.decline
-        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully approved.' }
+        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully declined.' }
         format.json { head :no_content }
       else
-        format.html { render @suggestion, notice: 'Failed to approve.' }
+        format.html { render @suggestion, notice: 'Failed to decline.' }
         format.json { render json: @suggestion.errors, status: :unprocessable_entity }
       end
     end
